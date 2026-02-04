@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-dark full-height">
     <!-- HEADER -->
-    <q-header elevated>
+    <!-- <q-header elevated>
       <q-toolbar>
         <q-avatar>
           <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
@@ -13,10 +13,14 @@
 
         <q-btn flat round dense icon="whatshot" />
       </q-toolbar>
-    </q-header>
+    </q-header> -->
 
     <!-- CONTENIDO -->
     <q-page-container class="bg-dark">
+      <div class="text-center">
+        <q-btn label="Ir al Juego" color="primary" size="lg" to="/juego" />
+      </div>
+
       <router-view />
     </q-page-container>
   </q-layout>
@@ -24,12 +28,17 @@
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App",
+};
+
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 </script>
 
 <style>
-html, body, #app {
+html,
+body,
+#app {
   margin: 0;
   padding: 0;
   height: 100%;
