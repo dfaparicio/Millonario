@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { Quasar, Notify, Loading } from 'quasar'
+import { Quasar, Notify, Loading, Dialog } from 'quasar'
 import { router } from './routes/routes.js'
 
 // Import icon libraries
@@ -17,7 +17,7 @@ const app = createApp(App)
 app.use(router)
 
 app.use(Quasar, {
-  plugins: { Notify, Loading },
+  plugins: { Notify, Loading, Dialog },
   lang: es,             
   iconSet: 'material-icons'
 })

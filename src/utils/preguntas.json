@@ -1,0 +1,502 @@
+[
+  {
+    "nivel": 1,
+    "preguntas": [
+      {
+        "pregunta": "¿De qué color es el caballo blanco de Santiago?",
+        "opciones": [
+          { "texto": "Negro", "correcta": false, "hidden": false },
+          { "texto": "Blanco", "correcta": true, "hidden": false },
+          { "texto": "Marrón", "correcta": false, "hidden": false },
+          { "texto": "Gris", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuántos días tiene una semana?",
+        "opciones": [
+          { "texto": "5", "correcta": false, "hidden": false },
+          { "texto": "6", "correcta": false, "hidden": false },
+          { "texto": "7", "correcta": true, "hidden": false },
+          { "texto": "8", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el animal más grande del océano?",
+        "opciones": [
+          { "texto": "Tiburón blanco", "correcta": false, "hidden": false },
+          { "texto": "Ballena azul", "correcta": true, "hidden": false },
+          { "texto": "Delfín", "correcta": false, "hidden": false },
+          { "texto": "Orca", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué figura geométrica tiene tres lados?",
+        "opciones": [
+          { "texto": "Cuadrado", "correcta": false, "hidden": false },
+          { "texto": "Triángulo", "correcta": true, "hidden": false },
+          { "texto": "Círculo", "correcta": false, "hidden": false },
+          { "texto": "Rectángulo", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el opuesto de 'frío'?",
+        "opciones": [
+          { "texto": "Hielo", "correcta": false, "hidden": false },
+          { "texto": "Caliente", "correcta": true, "hidden": false },
+          { "texto": "Tibio", "correcta": false, "hidden": false },
+          { "texto": "Congelado", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "preguntas": [
+      {
+        "pregunta": "¿En qué continente está Brasil?",
+        "opciones": [
+          { "texto": "Europa", "correcta": false, "hidden": false },
+          { "texto": "Asia", "correcta": false, "hidden": false },
+          { "texto": "América", "correcta": true, "hidden": false },
+          { "texto": "África", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué instrumento toca Lisa Simpson?",
+        "opciones": [
+          { "texto": "Guitarra", "correcta": false, "hidden": false },
+          { "texto": "Saxofón", "correcta": true, "hidden": false },
+          { "texto": "Batería", "correcta": false, "hidden": false },
+          { "texto": "Violín", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el planeta rojo?",
+        "opciones": [
+          { "texto": "Júpiter", "correcta": false, "hidden": false },
+          { "texto": "Marte", "correcta": true, "hidden": false },
+          { "texto": "Venus", "correcta": false, "hidden": false },
+          { "texto": "Saturno", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuántas patas tiene una araña?",
+        "opciones": [
+          { "texto": "6", "correcta": false, "hidden": false },
+          { "texto": "8", "correcta": true, "hidden": false },
+          { "texto": "10", "correcta": false, "hidden": false },
+          { "texto": "12", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué idioma se habla en México?",
+        "opciones": [
+          { "texto": "Portugués", "correcta": false, "hidden": false },
+          { "texto": "Español", "correcta": true, "hidden": false },
+          { "texto": "Francés", "correcta": false, "hidden": false },
+          { "texto": "Italiano", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "preguntas": [
+      {
+        "pregunta": "¿Quién pintó la Mona Lisa?",
+        "opciones": [
+          { "texto": "Van Gogh", "correcta": false, "hidden": false },
+          { "texto": "Picasso", "correcta": false, "hidden": false },
+          { "texto": "Leonardo da Vinci", "correcta": true, "hidden": false },
+          { "texto": "Miguel Ángel", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es la capital de Francia?",
+        "opciones": [
+          { "texto": "Roma", "correcta": false, "hidden": false },
+          { "texto": "Madrid", "correcta": false, "hidden": false },
+          { "texto": "París", "correcta": true, "hidden": false },
+          { "texto": "Londres", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué gas respiramos los humanos para vivir?",
+        "opciones": [
+          { "texto": "Helio", "correcta": false, "hidden": false },
+          { "texto": "Oxígeno", "correcta": true, "hidden": false },
+          { "texto": "Dióxido de carbono", "correcta": false, "hidden": false },
+          { "texto": "Hidrógeno", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Quién es el autor de 'Harry Potter'?",
+        "opciones": [
+          { "texto": "J.R.R. Tolkien", "correcta": false, "hidden": false },
+          { "texto": "J.K. Rowling", "correcta": true, "hidden": false },
+          { "texto": "Stephen King", "correcta": false, "hidden": false },
+          { "texto": "George R.R. Martin", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuántos minutos tiene una hora?",
+        "opciones": [
+          { "texto": "100", "correcta": false, "hidden": false },
+          { "texto": "50", "correcta": false, "hidden": false },
+          { "texto": "60", "correcta": true, "hidden": false },
+          { "texto": "30", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "preguntas": [
+      {
+        "pregunta": "¿En qué año llegó el hombre a la luna?",
+        "opciones": [
+          { "texto": "1959", "correcta": false, "hidden": false },
+          { "texto": "1969", "correcta": true, "hidden": false },
+          { "texto": "1975", "correcta": false, "hidden": false },
+          { "texto": "1980", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el río más largo del mundo?",
+        "opciones": [
+          { "texto": "Nilo", "correcta": false, "hidden": false },
+          { "texto": "Amazonas", "correcta": true, "hidden": false },
+          { "texto": "Yangtsé", "correcta": false, "hidden": false },
+          { "texto": "Misisipi", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué fórmula química representa el agua?",
+        "opciones": [
+          { "texto": "CO2", "correcta": false, "hidden": false },
+          { "texto": "H2O", "correcta": true, "hidden": false },
+          { "texto": "O2", "correcta": false, "hidden": false },
+          { "texto": "NaCl", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
+        "opciones": [
+          { "texto": "Lope de Vega", "correcta": false, "hidden": false },
+          { "texto": "Miguel de Cervantes", "correcta": true, "hidden": false },
+          { "texto": "Gabriel García Márquez", "correcta": false, "hidden": false },
+          { "texto": "Federico García Lorca", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el hueso más largo del cuerpo humano?",
+        "opciones": [
+          { "texto": "Húmero", "correcta": false, "hidden": false },
+          { "texto": "Fémur", "correcta": true, "hidden": false },
+          { "texto": "Tibia", "correcta": false, "hidden": false },
+          { "texto": "Radio", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 5,
+    "preguntas": [
+      {
+        "pregunta": "¿En qué país se usó la primera bomba atómica?",
+        "opciones": [
+          { "texto": "Alemania", "correcta": false, "hidden": false },
+          { "texto": "Japón", "correcta": true, "hidden": false },
+          { "texto": "Rusia", "correcta": false, "hidden": false },
+          { "texto": "Vietnam", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el metal más caro del mundo?",
+        "opciones": [
+          { "texto": "Oro", "correcta": false, "hidden": false },
+          { "texto": "Rodio", "correcta": true, "hidden": false },
+          { "texto": "Platino", "correcta": false, "hidden": false },
+          { "texto": "Plata", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuántos corazones tiene un pulpo?",
+        "opciones": [
+          { "texto": "1", "correcta": false, "hidden": false },
+          { "texto": "2", "correcta": false, "hidden": false },
+          { "texto": "3", "correcta": true, "hidden": false },
+          { "texto": "4", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Quién fue el primer presidente de los Estados Unidos?",
+        "opciones": [
+          { "texto": "Abraham Lincoln", "correcta": false, "hidden": false },
+          { "texto": "Thomas Jefferson", "correcta": false, "hidden": false },
+          { "texto": "George Washington", "correcta": true, "hidden": false },
+          { "texto": "Benjamin Franklin", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué elemento químico tiene el símbolo 'Au'?",
+        "opciones": [
+          { "texto": "Plata", "correcta": false, "hidden": false },
+          { "texto": "Cobre", "correcta": false, "hidden": false },
+          { "texto": "Oro", "correcta": true, "hidden": false },
+          { "texto": "Aluminio", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "preguntas": [
+      {
+        "pregunta": "¿Qué año marcó el fin de la Segunda Guerra Mundial?",
+        "opciones": [
+          { "texto": "1940", "correcta": false, "hidden": false },
+          { "texto": "1945", "correcta": true, "hidden": false },
+          { "texto": "1950", "correcta": false, "hidden": false },
+          { "texto": "1939", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es la capital de Australia?",
+        "opciones": [
+          { "texto": "Sídney", "correcta": false, "hidden": false },
+          { "texto": "Melbourne", "correcta": false, "hidden": false },
+          { "texto": "Canberra", "correcta": true, "hidden": false },
+          { "texto": "Brisbane", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Quién descubrió la penicilina?",
+        "opciones": [
+          { "texto": "Marie Curie", "correcta": false, "hidden": false },
+          { "texto": "Louis Pasteur", "correcta": false, "hidden": false },
+          { "texto": "Alexander Fleming", "correcta": true, "hidden": false },
+          { "texto": "Isaac Newton", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué deporte practica Rafael Nadal?",
+        "opciones": [
+          { "texto": "Fútbol", "correcta": false, "hidden": false },
+          { "texto": "Golf", "correcta": false, "hidden": false },
+          { "texto": "Tenis", "correcta": true, "hidden": false },
+          { "texto": "Baloncesto", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuántos lados tiene un heptágono?",
+        "opciones": [
+          { "texto": "5", "correcta": false, "hidden": false },
+          { "texto": "6", "correcta": false, "hidden": false },
+          { "texto": "7", "correcta": true, "hidden": false },
+          { "texto": "8", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 7,
+    "preguntas": [
+      {
+        "pregunta": "¿En qué año cayó el Muro de Berlín?",
+        "opciones": [
+          { "texto": "1987", "correcta": false, "hidden": false },
+          { "texto": "1989", "correcta": true, "hidden": false },
+          { "texto": "1991", "correcta": false, "hidden": false },
+          { "texto": "1993", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
+        "opciones": [
+          { "texto": "Hígado", "correcta": false, "hidden": false },
+          { "texto": "Cerebro", "correcta": false, "hidden": false },
+          { "texto": "Piel", "correcta": true, "hidden": false },
+          { "texto": "Pulmón", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué significan las siglas ADN?",
+        "opciones": [
+          { "texto": "Ácido desoxirribonucleico", "correcta": true, "hidden": false },
+          { "texto": "Ácido ribonucleico", "correcta": false, "hidden": false },
+          { "texto": "Ácido dinucleico", "correcta": false, "hidden": false },
+          { "texto": "Ácido de nucleótidos", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué pintor es famoso por cortarse una oreja?",
+        "opciones": [
+          { "texto": "Picasso", "correcta": false, "hidden": false },
+          { "texto": "Dalí", "correcta": false, "hidden": false },
+          { "texto": "Van Gogh", "correcta": true, "hidden": false },
+          { "texto": "Monet", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es la moneda oficial de Japón?",
+        "opciones": [
+          { "texto": "Won", "correcta": false, "hidden": false },
+          { "texto": "Yuan", "correcta": false, "hidden": false },
+          { "texto": "Yen", "correcta": true, "hidden": false },
+          { "texto": "Dólar", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 8,
+    "preguntas": [
+      {
+        "pregunta": "¿Quién formuló la teoría de la relatividad?",
+        "opciones": [
+          { "texto": "Isaac Newton", "correcta": false, "hidden": false },
+          { "texto": "Nikola Tesla", "correcta": false, "hidden": false },
+          { "texto": "Albert Einstein", "correcta": true, "hidden": false },
+          { "texto": "Stephen Hawking", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué estrecho separa España de Marruecos?",
+        "opciones": [
+          { "texto": "Estrecho de Bering", "correcta": false, "hidden": false },
+          { "texto": "Estrecho de Magallanes", "correcta": false, "hidden": false },
+          { "texto": "Estrecho de Gibraltar", "correcta": true, "hidden": false },
+          { "texto": "Estrecho de Ormuz", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cómo se llama el miedo a los espacios cerrados?",
+        "opciones": [
+          { "texto": "Agorafobia", "correcta": false, "hidden": false },
+          { "texto": "Aracnofobia", "correcta": false, "hidden": false },
+          { "texto": "Claustrofobia", "correcta": true, "hidden": false },
+          { "texto": "Acrofobia", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué gas es el más abundante en la atmósfera terrestre?",
+        "opciones": [
+          { "texto": "Oxígeno", "correcta": false, "hidden": false },
+          { "texto": "Hidrógeno", "correcta": false, "hidden": false },
+          { "texto": "Nitrógeno", "correcta": true, "hidden": false },
+          { "texto": "Dióxido de carbono", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuántos jugadores hay en un equipo de voleibol en cancha?",
+        "opciones": [
+          { "texto": "5", "correcta": false, "hidden": false },
+          { "texto": "6", "correcta": true, "hidden": false },
+          { "texto": "7", "correcta": false, "hidden": false },
+          { "texto": "11", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "preguntas": [
+      {
+        "pregunta": "¿Qué elemento químico es el más pesado de origen natural?",
+        "opciones": [
+          { "texto": "Plutonio", "correcta": false, "hidden": false },
+          { "texto": "Osmio", "correcta": false, "hidden": false },
+          { "texto": "Uranio", "correcta": true, "hidden": false },
+          { "texto": "Plomo", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿En qué año se fundó la ONU?",
+        "opciones": [
+          { "texto": "1919", "correcta": false, "hidden": false },
+          { "texto": "1939", "correcta": false, "hidden": false },
+          { "texto": "1945", "correcta": true, "hidden": false },
+          { "texto": "1950", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es la capital de Canadá?",
+        "opciones": [
+          { "texto": "Toronto", "correcta": false, "hidden": false },
+          { "texto": "Montreal", "correcta": false, "hidden": false },
+          { "texto": "Ottawa", "correcta": true, "hidden": false },
+          { "texto": "Vancouver", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Quién escribió 'La Odisea'?",
+        "opciones": [
+          { "texto": "Sófocles", "correcta": false, "hidden": false },
+          { "texto": "Platón", "correcta": false, "hidden": false },
+          { "texto": "Homero", "correcta": true, "hidden": false },
+          { "texto": "Aristóteles", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué vitamina produce el cuerpo con la luz solar?",
+        "opciones": [
+          { "texto": "Vitamina C", "correcta": false, "hidden": false },
+          { "texto": "Vitamina A", "correcta": false, "hidden": false },
+          { "texto": "Vitamina D", "correcta": true, "hidden": false },
+          { "texto": "Vitamina E", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la montaña más alta del sistema solar?",
+        "opciones": [
+          { "texto": "Monte Everest", "correcta": false, "hidden": false },
+          { "texto": "Mauna Kea", "correcta": false, "hidden": false },
+          { "texto": "Monte Olimpo", "correcta": true, "hidden": false },
+          { "texto": "K2", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué tratado puso fin a la Primera Guerra Mundial?",
+        "opciones": [
+          { "texto": "Tratado de Utrecht", "correcta": false, "hidden": false },
+          { "texto": "Tratado de Tordesillas", "correcta": false, "hidden": false },
+          { "texto": "Tratado de Versalles", "correcta": true, "hidden": false },
+          { "texto": "Tratado de Viena", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Cuál es el metal con el punto de fusión más alto?",
+        "opciones": [
+          { "texto": "Titanio", "correcta": false, "hidden": false },
+          { "texto": "Hierro", "correcta": false, "hidden": false },
+          { "texto": "Tungsteno", "correcta": true, "hidden": false },
+          { "texto": "Platino", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿En qué país se encuentra la ciudad de Tombuctú?",
+        "opciones": [
+          { "texto": "Egipto", "correcta": false, "hidden": false },
+          { "texto": "Marruecos", "correcta": false, "hidden": false },
+          { "texto": "Malí", "correcta": true, "hidden": false },
+          { "texto": "Sudáfrica", "correcta": false, "hidden": false }
+        ]
+      },
+      {
+        "pregunta": "¿Qué científico propuso las tres leyes del movimiento?",
+        "opciones": [
+          { "texto": "Galileo Galilei", "correcta": false, "hidden": false },
+          { "texto": "Copérnico", "correcta": false, "hidden": false },
+          { "texto": "Isaac Newton", "correcta": true, "hidden": false },
+          { "texto": "Kepler", "correcta": false, "hidden": false }
+        ]
+      }
+    ]
+  }
+]

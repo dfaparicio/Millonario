@@ -2,14 +2,11 @@
   <q-page class="game-page flex flex-center">
     <div class="top-section full-width row justify-between q-pa-md absolute-top">
       <div class="row q-gutter-md">
-        <q-btn round outline color="white" icon="euro_symbol" class="lifeline-btn">
-          <q-tooltip>Dinero Acumulado</q-tooltip>
-        </q-btn>
-        <q-btn round outline color="white" icon="directions_walk" class="lifeline-btn">
+        <q-btn round outline color="white" icon="directions_walk" class="lifeline-btn" @click="confirmarRetirada">
           <q-tooltip>Retirarse</q-tooltip>
         </q-btn>
       </div>
-      <div class="row q-gutter-md">
+      <div class="row q-gutter-md ">
         <q-btn round outline color="white" label="50:50" class="lifeline-btn text-bold" @click="use5050" :disable="comodines.cinquenta">
           <q-tooltip>Comodín 50:50</q-tooltip>
         </q-btn>
@@ -22,24 +19,12 @@
       </div>
     </div>
 
-    <!-- Main Game Area -->
     <div class="game-area column items-center full-width">
-      <!-- Central Logo -->
       <div class="logo-container q-mb-xl">
-        <div class="logo-outer">
-          <div class="logo-inner">
-            <div class="logo-circle">
-              <div class="logo-text-small top">QUIEN QUIERE SER</div>
-              <div class="logo-text-main">MILLONARIO</div>
-              <div class="logo-text-small bottom">QUIEN QUIERE SER</div>
-            </div>
-          </div>
-        </div>
+        <img src="../assets/Millonario.png" alt="Logo Millonario" class="logo-img">
       </div>
 
-      <!-- Interaction Area (Question and Options) -->
       <div class="interaction-container full-width q-px-xl">
-        <!-- Question Block -->
         <div class="question-wrapper q-mb-xl">
           <div class="diamond-box question-box">
             <div class="diamond-content text-h5 text-bold text-center">
@@ -48,7 +33,6 @@
           </div>
         </div>
 
-        <!-- Options Grid -->
         <div class="options-container row q-col-gutter-y-lg q-col-gutter-x-xl justify-center relative-position">
           <div v-for="(opcion, index) in currentQuestion.opciones" :key="index" class="col-12 col-md-6">
             <div 
@@ -63,9 +47,28 @@
             </div>
           </div>
 
-          <!-- Level indicator -->
           <div class="level-indicator absolute-center text-orange text-h6 text-bold">
             {{ nivelActual }}
+          </div>
+        </div>
+
+        <div class="prize-sidebar absolute-right q-pa-md q-mr-lg gt-sm">
+          <div class="prize-ladder column reverse q-gutter-xs">
+            <div 
+              v-for="(premio, index) in escalaPremios.slice(1)" 
+              :key="index"
+              class="prize-step row items-center q-px-md q-py-xs"
+              :class="{ 
+                'active-step': (index + 1) === nivelActual,
+                'completed-step': (index + 1) < nivelActual,
+                'safety-net': (index + 1) === 5 || (index + 1) === 10
+              }"
+            >
+              <span class="step-num q-mr-md q-pr-sm" style="border-right: 1px solid rgba(255,255,255,0.2)">
+                {{ index + 1 }}
+              </span>
+              <span class="step-value text-bold">{{ premio }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -74,29 +77,71 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
+import preguntasData from '../utils/preguntas.json'
 
 const $q = useQuasar()
+const router = useRouter()
 
 // Estado del juego
 const nivelActual = ref(1)
+const currentQuestion = ref({ pregunta: '', opciones: [] })
 const comodines = ref({
   cinquenta: false,
   llamada: false,
   publico: false
 })
 
-// Pregunta de ejemplo (basada en la imagen)
-const currentQuestion = ref({
-  pregunta: '¿Qué tipo de animal es una libélula?',
-  opciones: [
-    { texto: 'Mamífero', correcta: false, hidden: false },
-    { texto: 'Insecto', correcta: true, hidden: false },
-    { texto: 'Reptil', correcta: false, hidden: false },
-    { texto: 'Ave', correcta: false, hidden: false }
-  ]
-})
+const escalaPremios = [
+  "$0", "$100", "$500", "$1.000", "$2.000", 
+  "$5.000", "$10.000", "$20.000", "$50.000", "$100.000", "$1.000.000"
+]
+
+const confirmarRetirada = () => {
+  const dineroGanado = escalaPremios[nivelActual.value - 1]
+  $q.dialog({
+    title: '¿QUIERES RETIRARTE?',
+    message: `Si te retiras ahora te llevarás: ${dineroGanado}. ¿Estás seguro?`,
+    cancel: true,
+    persistent: true
+  }).onOk(() => {
+    $q.dialog({
+      title: 'TE HAS RETIRADO',
+      message: `¡Felicidades! Te vas a casa con ${dineroGanado}.`,
+      persistent: true
+    }).onOk(() => {
+      router.push('/')
+    })
+  })
+}
+
+// Función para obtener una pregunta aleatoria de un nivel dado
+const obtenerPreguntaDeNivel = (nivel) => {
+  const nivelData = preguntasData.find(n => n.nivel === nivel)
+  if (nivelData && nivelData.preguntas.length > 0) {
+    const randomIndex = Math.floor(Math.random() * nivelData.preguntas.length)
+    // Clonamos el objeto para evitar modificar el JSON original directamente
+    return JSON.parse(JSON.stringify(nivelData.preguntas[randomIndex]))
+  }
+  return null
+}
+
+watch(nivelActual, (nuevoNivel) => {
+  const pregunta = obtenerPreguntaDeNivel(nuevoNivel)
+  if (pregunta) {
+    currentQuestion.value = pregunta
+  } else if (nuevoNivel > 10) {
+    $q.dialog({
+      title: '¡ERES MILLONARIO!',
+      message: '¡Has superado todas las preguntas!',
+      persistent: true
+    }).onOk(() => {
+      router.push('/')
+    })
+  }
+}, { immediate: true })
 
 const checkAnswer = (index) => {
   const opcion = currentQuestion.value.opciones[index]
@@ -105,20 +150,31 @@ const checkAnswer = (index) => {
       message: '¡CORRECTO!',
       color: 'positive',
       icon: 'check',
-      position: 'top'
+      position: 'top',
+      timeout: 1000
     })
-    // Aquí iría la lógica para pasar a la siguiente pregunta
+    
+    // Si no es el nivel final, subimos de nivel. El watch se encargará de cargar la siguiente pregunta.    
+    if (nivelActual.value <= 10) {
+      nivelActual.value++
+    }
   } else {
-    $q.notify({
-      message: 'Respuesta incorrecta. Fin del juego.',
-      color: 'negative',
-      icon: 'close',
-      position: 'top'
+    // Lógica de Seguros
+    let seguro = "$0"
+    if (nivelActual.value > 5) seguro = "$5.000"
+    
+    $q.dialog({
+      title: 'FIN DEL JUEGO',
+      message: `Respuesta incorrecta. Te llevas el dinero del seguro: ${seguro}.`,
+      persistent: true
+    }).onOk(() => {
+      router.push('/')
     })
   }
 }
 
-// Comodines
+//Comodines
+
 const use5050 = () => {
   if (comodines.value.cinquenta) return
   comodines.value.cinquenta = true
@@ -127,20 +183,35 @@ const use5050 = () => {
     .map((opt, i) => ({ ...opt, originalIndex: i }))
     .filter(opt => !opt.correcta)
   
-  // Ocultar dos al azar
   const shuffle = incorrectas.sort(() => 0.5 - Math.random())
   currentQuestion.value.opciones[shuffle[0].originalIndex].hidden = true
   currentQuestion.value.opciones[shuffle[1].originalIndex].hidden = true
 }
 
 const usePhone = () => {
+  if (comodines.value.llamada) return
   comodines.value.llamada = true
-  $q.notify({ message: 'Tu amigo cree que la respuesta es Insecto', color: 'info' })
+  
+  const correcta = currentQuestion.value.opciones.find(o => o.correcta)
+  $q.notify({ 
+    message: `Tu amigo dice: "Creo que la respuesta correcta es la ${correcta.texto}"`, 
+    color: 'info',
+    icon: 'phone',
+    position: 'center'
+  })
 }
 
 const usePublic = () => {
+  if (comodines.value.publico) return
   comodines.value.publico = true
-  $q.notify({ message: 'El público votó: B: 85%, A: 5%, C: 5%, D: 5%', color: 'info' })
+  
+  const correcta = currentQuestion.value.opciones.find(o => o.correcta)
+  $q.notify({ 
+    message: `El público opina que la respuesta correcta es la ${correcta.texto} con un 80% de votos.`, 
+    color: 'info',
+    icon: 'groups',
+    position: 'center'
+  })
 }
 </script>
 
@@ -153,7 +224,6 @@ const usePublic = () => {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Comodines Style */
 .lifeline-btn {
   border: 2px solid white !important;
   background: rgba(0, 0, 100, 0.4);
@@ -167,7 +237,6 @@ const usePublic = () => {
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 }
 
-/* Logo "Millonario" CSS */
 .logo-outer {
   width: 260px;
   height: 260px;
@@ -209,7 +278,6 @@ const usePublic = () => {
   opacity: 0.7;
 }
 
-/* Diamond boxes for Question/Answers */
 .diamond-box {
   background: linear-gradient(180deg, #1e3a8a 0%, #000033 100%);
   border-top: 2px solid #6366f1;
@@ -220,30 +288,12 @@ const usePublic = () => {
   justify-content: center;
   padding: 12px 0;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
 }
 
-.diamond-box::before,
-.diamond-box::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  width: 40px;
-  height: calc(100% + 4px);
-  background: inherit;
-  border-top: 2px solid #6366f1;
-  border-bottom: 2px solid #6366f1;
-}
-
-.diamond-box::before {
-  left: -20px;
-  transform: skewX(-30deg);
-  border-left: 2px solid #6366f1;
-}
-
-.diamond-box::after {
-  right: -20px;
-  transform: skewX(30deg);
-  border-right: 2px solid #6366f1;
+.diamond-box:hover {
+  background: linear-gradient(180deg, #fbc02d 0%, #f57f17 100%);
+  border-color: #fff;
 }
 
 .question-box {
@@ -259,17 +309,16 @@ const usePublic = () => {
   transition: all 0.3s ease;
 }
 
-.option-box:hover {
-  background: linear-gradient(180deg, #fbc02d 0%, #f57f17 100%);
-  border-color: #fff;
+.option-box:hover .diamond-content {
+  color: rgb(0, 0, 0);
 }
 
-.option-box:hover .diamond-content {
-  color: black;
+.text-orange {
+  color: #fbc02d;
 }
 
 .option-box:hover .text-orange {
-  color: white;
+  color: white !important;
 }
 
 .option-hidden {
@@ -282,20 +331,54 @@ const usePublic = () => {
   padding: 0 10px;
 }
 
-.text-orange {
-  color: #fbc02d;
-}
-
 .level-indicator {
   top: 100%;
   margin-top: 15px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .logo-outer { width: 180px; height: 180px; }
   .logo-text-main { font-size: 1.2rem; }
   .question-box { width: 95%; font-size: 1rem; }
   .option-box { width: 100%; }
+}
+
+.prize-sidebar {
+  top: 50%;
+  transform: translateY(-80%) translateX(5%);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #6366f1;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.prize-step {
+  color: #fbc02d;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.active-step {
+  opacity: 1;
+  background: rgba(251, 192, 45, 0.2);
+  border: 1px solid #fbc02d;
+  color: white;
+  transform: scale(1.1);
+}
+
+.completed-step {
+  opacity: 1;
+  color: #363535;
+}
+
+.safety-net {
+  color: white !important;
+  font-weight: bold;
+}
+
+.step-num {
+  width: 25px;
+  display: inline-block;
 }
 </style>
