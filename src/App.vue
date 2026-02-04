@@ -1,6 +1,10 @@
 <template>
   <q-app>
-    <router-view />
+    <q-layout view="lHh Lpr lFf">
+      <q-page-container>
+        <router-view />
+      </q-page-container>
+    </q-layout>
   </q-app>
 </template>
 
@@ -12,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000;
-  overflow: hidden;
+  color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -21,3 +25,4 @@ body {
   width: 100vw;
 }
 </style>
+
