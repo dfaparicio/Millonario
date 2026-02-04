@@ -34,13 +34,7 @@ body,
 }
 
 .fondo {
-  background: radial-gradient(
-    circle at center,
-    #c27aff 0%,
-    #a64dff 25%,
-    #7a00c0 50%,
-    #52008a 75%,
-    #3d0073 100%
-  );
+  background: radial-gradient(circle at center, #1a237e 0%, #000 100%);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 </style>

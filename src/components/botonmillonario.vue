@@ -1,19 +1,15 @@
 <template>
   <q-btn
     :label="label"
-    color="transparent"
     class="millionaire-btn"
     unelevated
-    rounded
-    size="lg"
     :to="to"
+    no-caps
   />
 </template>
 
 <script setup>
-import { defineProps } from "vue";
-
-const props = defineProps({
+defineProps({
   label: { type: String, required: true },
   to: { type: String, default: null },
 });
@@ -21,23 +17,30 @@ const props = defineProps({
 
 <style scoped>
 .millionaire-btn {
-  background: linear-gradient(180deg, #ffd700, #b8860b);
-  color: #000;
+  background: linear-gradient(180deg, #1e3a8a 0%, #000033 100%);
+  color: white;
   font-weight: bold;
   font-size: 1.2rem;
-  border: 3px solid #fff8dc;
-  width: 250px;
+  border-top: 2px solid #6366f1;
+  border-bottom: 2px solid #6366f1;
+  border-left: 2px solid #6366f1;
+  border-right: 2px solid #6366f1;
+  width: 280px;
   height: 60px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .millionaire-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ffd700;
-  cursor: pointer;
+  background: linear-gradient(180deg, #fbc02d 0%, #f57f17 100%);
+  border-color: #fff;
+  color: black;
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(251, 192, 45, 0.4);
 }
 
 .millionaire-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 </style>
