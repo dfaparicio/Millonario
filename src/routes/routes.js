@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  { path: '/', component: () => import('../App.vue') },
+  { path: '/', component: () => import('../inicio.vue') },
 
   { path: '/juego', component: () => import('../components/juego.vue') },
 

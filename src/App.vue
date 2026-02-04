@@ -1,6 +1,5 @@
 <template>
   <router-view />
-  <template>
   <div class="q-pa-md">
     <q-layout view="lHh lpr lFf" container style="height: 400px" class="shadow-2 rounded-borders">
       <q-header elevated>
@@ -26,7 +25,6 @@
       </q-page-container>
     </q-layout>
   </div>
-</template>
 </template>
 
 <style scoped>
