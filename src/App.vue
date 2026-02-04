@@ -18,6 +18,8 @@ body {
   background-color: #000;
   color: rgb(0, 0, 0);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden; 
+  overflow-y: auto;  
 }
 
 #app {

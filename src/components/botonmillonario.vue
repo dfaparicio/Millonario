@@ -3,7 +3,6 @@
     :label="label"
     color="transparent"
     class="millionaire-btn"
-    @click="$emit('click')"
     unelevated
     rounded
     size="lg"
