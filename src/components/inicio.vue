@@ -5,14 +5,14 @@
         <div class="text-center">
           <img :src="Millonario" alt="Millonario" width="300" class="q-mb-xl" />
 
-          <div v-if="!usuarioStore.usuarioActual" class="column items-center q-gutter-md">
-            <q-input filled v-model="nombreInput" label="Escribe tu nombre" dark color="amber" class="width-input"
-              @keyup.enter="manejarLogin" />
-            <botonmillonario label="Entrar" @click="manejarLogin" />
+          <div v-if="!usuarioStore.usuarioactual" class="column items-center q-gutter-md">
+            <q-input filled v-model="nombre" label="Escribe tu nombre" dark color="amber" class="width-input"
+              @keyup.enter="login" />
+            <botonmillonario label="Entrar" @click="login" />
           </div>
 
           <div v-else>
-            <h2 class="text-white q-mb-md">¡Bienvenido, {{ usuarioStore.usuarioActual }}!</h2>
+            <h2 class="text-white q-mb-md">¡Bienvenido, {{ usuarioStore.usuarioactual }}!</h2>
 
             <div class="flex justify-center q-gutter-md">
               <botonmillonario label="Jugar" to="/juego" />
@@ -34,23 +34,23 @@ import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 import Millonario from "../assets/Millonario.png";
 import botonmillonario from "../components/botonmillonario.vue";
-import { useUsuarioStore } from "../usuario/usuarios.js";
+import { usuarioStore } from "../usuario/usuarios.js";
 
 const $q = useQuasar();
-const usuarioStore = useUsuarioStore();
-const nombreInput = ref("");
+const usuarioStore = usuarioStore();
+const nombre = ref("");
 
-const manejarLogin = () => {
-  if (!nombreInput.value.trim()) {
+const login = () => {
+  if (!nombre.value.trim()) {
     $q.notify({ message: 'Escribe un nombre válido', color: 'negative', position: 'top' });
     return;
   }
 
-  const resultado = usuarioStore.login(nombreInput.value);
+  const resultado = usuarioStore.login(nombre.value);
 
   if (resultado === "existente") {
     $q.notify({
-      message: `Hola de nuevo, ${usuarioStore.usuarioActual}`,
+      message: `Hola de nuevo, ${usuarioStore.usuarioactual}`,
       color: 'positive',
       icon: 'person'
     });
@@ -62,7 +62,7 @@ const manejarLogin = () => {
     });
   }
 
-  nombreInput.value = "";
+  nombre.value = "";
 };
 </script>
 
