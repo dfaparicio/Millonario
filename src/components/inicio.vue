@@ -19,7 +19,7 @@
               <botonmillonario label="Instrucciones" to="/instrucciones" />
 
               <div class="full-width q-mt-md">
-                <q-btn flat color="red-5" label="Cerrar Sesión" icon="logout" @click="usuarioStore.logout" />
+                <q-btn flat color="red-5" label="Cerrar Sesión" icon="logout" @click="usuariostore.logout" />
               </div>
             </div>
           </div>
