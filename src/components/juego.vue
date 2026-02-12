@@ -102,14 +102,22 @@ const escalaPremios = [
 const confirmarRetirada = () => {
   const dineroGanado = escalaPremios[nivelActual.value - 1]
   $q.dialog({
-    title: '¿QUIERES RETIRARTE?',
-    message: `Si te retiras ahora te llevarás: ${dineroGanado}. ¿Estás seguro?`,
-    cancel: true,
+    title: '<div class="text-orange text-bold text-center full-width">¿QUIERES RETIRARTE?</div>',
+    message: `<div class="text-center">Si te retiras ahora te llevarás <span class="text-orange text-bold">${dineroGanado}</span>. ¿Estás seguro?</div>`,
+    html: true,
+    dark: true,
+    class: 'millonario-dialog',
+    cancel: { color: 'white', flat: true, label: 'No, seguir' },
+    ok: { color: 'orange', label: 'Sí, retirarme', unelevated: true },
     persistent: true
   }).onOk(() => {
     $q.dialog({
-      title: 'TE HAS RETIRADO',
-      message: `¡Felicidades! Te vas a casa con ${dineroGanado}.`,
+      title: '<div class="text-orange text-bold text-center full-width">TE HAS RETIRADO</div>',
+      message: `<div class="text-center">¡Felicidades! Te vas a casa con <span class="text-orange text-bold">${dineroGanado}</span>.</div>`,
+      html: true,
+      dark: true,
+      class: 'millonario-dialog',
+      ok: { color: 'orange', label: 'Aceptar' },
       persistent: true
     }).onOk(() => {
       router.push('/')
@@ -134,8 +142,12 @@ watch(nivelActual, (nuevoNivel) => {
     currentQuestion.value = pregunta
   } else if (nuevoNivel > 10) {
     $q.dialog({
-      title: '¡ERES MILLONARIO!',
-      message: '¡Has superado todas las preguntas!',
+      title: '<div class="text-orange text-bold text-center full-width">¡ERES MILLONARIO!</div>',
+      message: '<div class="text-center">¡Has superado todas las preguntas y has ganado $1.000.000!</div>',
+      html: true,
+      dark: true,
+      class: 'millonario-dialog',
+      ok: { color: 'orange', label: 'Celebrar', unelevated: true },
       persistent: true
     }).onOk(() => {
       router.push('/')
@@ -164,8 +176,12 @@ const checkAnswer = (index) => {
     if (nivelActual.value > 5) seguro = "$5.000"
     
     $q.dialog({
-      title: 'FIN DEL JUEGO',
-      message: `Respuesta incorrecta. Te llevas el dinero del seguro: ${seguro}.`,
+      title: '<div class="text-negative text-bold text-center full-width">FIN DEL JUEGO</div>',
+      message: `<div class="text-center">Respuesta incorrecta. Te llevas el dinero del seguro: <span class="text-orange text-bold">${seguro}</span>.</div>`,
+      html: true,
+      dark: true,
+      class: 'millonario-dialog',
+      ok: { color: 'orange', label: 'Volver a intentar' },
       persistent: true
     }).onOk(() => {
       router.push('/')
@@ -215,7 +231,7 @@ const usePublic = () => {
 }
 </script>
 
-<style scoped>
+<style  >
 .game-page {
   background: radial-gradient(circle at center, #1a237e 0%, #000 100%);
   min-height: 100vh;
@@ -336,13 +352,6 @@ const usePublic = () => {
   margin-top: 15px;
 }
 
-@media (max-width: 600px) {
-  .logo-outer { width: 180px; height: 180px; }
-  .logo-text-main { font-size: 1.2rem; }
-  .question-box { width: 95%; font-size: 1rem; }
-  .option-box { width: 100%; }
-}
-
 .prize-sidebar {
   top: 50%;
   transform: translateY(-80%) translateX(5%);
@@ -380,5 +389,31 @@ const usePublic = () => {
 .step-num {
   width: 25px;
   display: inline-block;
+}
+
+.millonario-dialog {
+  background: linear-gradient(135deg, #0d125a 0%, #000000 100%) !important;
+  border: 2px solid #6366f1 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.5) !important;
+}
+
+.millonario-dialog .q-dialog__title {
+  padding: 20px 24px 10px !important;
+  font-size: 1.6rem !important;
+  color: #fbc02d !important;
+  text-align: center;
+}
+
+.millonario-dialog .q-card__section {
+  font-size: 1.2rem !important;
+  color: white !important;
+  padding: 10px 24px 20px !important;
+  text-align: center;
+}
+
+.millonario-dialog .q-btn {
+  font-weight: bold !important;
+  color: #ffffff !important;
 }
 </style>
