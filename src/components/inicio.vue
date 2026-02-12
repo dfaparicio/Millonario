@@ -5,14 +5,14 @@
         <div class="text-center">
           <img :src="Millonario" alt="Millonario" width="300" class="q-mb-xl" />
 
-          <div v-if="!usuarioStore.usuarioactual" class="column items-center q-gutter-md">
+          <div v-if="!usuariostore.usuarioactual" class="column items-center q-gutter-md">
             <q-input filled v-model="nombre" label="Escribe tu nombre" dark color="amber" class="width-input"
               @keyup.enter="login" />
             <botonmillonario label="Entrar" @click="login" />
           </div>
 
           <div v-else>
-            <h2 class="text-white q-mb-md">¡Bienvenido, {{ usuarioStore.usuarioactual }}!</h2>
+            <h2 class="text-white q-mb-md">¡Bienvenido, {{ usuariostore.usuarioactual }}!</h2>
 
             <div class="flex justify-center q-gutter-md">
               <botonmillonario label="Jugar" to="/juego" />
@@ -37,7 +37,7 @@ import botonmillonario from "../components/botonmillonario.vue";
 import { usuarioStore } from "../usuario/usuarios.js";
 
 const $q = useQuasar();
-const usuarioStore = usuarioStore();
+const usuariostore = usuarioStore();
 const nombre = ref("");
 
 const login = () => {
@@ -46,11 +46,11 @@ const login = () => {
     return;
   }
 
-  const resultado = usuarioStore.login(nombre.value);
+  const resultado = usuariostore.login(nombre.value);
 
   if (resultado === "existente") {
     $q.notify({
-      message: `Hola de nuevo, ${usuarioStore.usuarioactual}`,
+      message: `Hola de nuevo, ${usuariostore.usuarioactual}`,
       color: 'positive',
       icon: 'person'
     });
